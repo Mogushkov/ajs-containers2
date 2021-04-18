@@ -1,5 +1,5 @@
 {
-  "name": "ajs-containers1",
+  "name": "ajs-containers2",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mogushkov/ajs-containers1.git"
+    "url": "git+https://github.com/Mogushkov/ajs-containers2.git"
   },
   "author": "Mogushkov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mogushkov/ajs-containers1/issues"
+    "url": "https://github.com/Mogushkov/ajs-containers2/issues"
   },
-  "homepage": "https://github.com/Mogushkov/ajs-containers1#readme",
+  "homepage": "https://github.com/Mogushkov/ajs-containers2#readme",
   "description": "",
   "devDependencies": {
     "@babel/cli": "^7.13.14",

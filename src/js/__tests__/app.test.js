@@ -1,52 +1,31 @@
-import Team from '../app';
+import ErrorRepository from '../app';
 
-const bowerman = {
-  type: 'Bowerman',
-  name: 'Robin',
-  health: 100,
-  level: 1,
-  attack: 25,
-  defence: 25,
-};
-const daemon = {
-  type: 'Daemon',
-  name: 'Bobin',
-  health: 100,
-  level: 1,
-  attack: 10,
-  defence: 40,
-};
-
-test('добавление игрока', () => {
-  const player = bowerman;
-  const team = new Team();
-  team.add(player);
-  const recieved = team.members.has(player);
-  expect(recieved).toBe(true);
+test('Error 401', () => {
+  const errorRepository = new ErrorRepository();
+  const recieved = errorRepository.translate('401');
+  expect(recieved).toBe('Red Error! Smth wrong');
 });
 
-test('добавление существующего игрока', () => {
-  const player = daemon;
-  const team = new Team();
-  team.add(player);
-  expect(() => team.add(player)()).toThrow();
+test('Error 402', () => {
+  const errorRepository = new ErrorRepository();
+  const recieved = errorRepository.translate('402');
+  expect(recieved).toBe('Yellow Error! Be carefull');
 });
 
-test('добавление двух игроков', () => {
-  const player1 = bowerman;
-  const player2 = daemon;
-  const team = new Team();
-  team.addAll(player1, player2);
-  const recieved1 = team.members.has(player1);
-  const recieved2 = team.members.has(player2);
-  expect(recieved1 && recieved2).toBe(true);
+test('Error 403', () => {
+  const errorRepository = new ErrorRepository();
+  const recieved = errorRepository.translate('403');
+  expect(recieved).toBe('Blue Error! Do smth');
 });
 
-test('конвертация в массив', () => {
-  const player1 = bowerman;
-  const player2 = daemon;
-  const team = new Team();
-  team.addAll(player1, player2);
-  team.toArray();
-  expect(team.members).toEqual([bowerman, daemon]);
+test('Error 404', () => {
+  const errorRepository = new ErrorRepository();
+  const recieved = errorRepository.translate('404');
+  expect(recieved).toBe('Orange Error! System Error');
+});
+
+test('unknown error', () => {
+  const errorRepository = new ErrorRepository();
+  const recieved = errorRepository.translate('0');
+  expect(recieved).toBe('Unknown error');
 });

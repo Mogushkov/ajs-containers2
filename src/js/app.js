@@ -1,23 +1,14 @@
-export default class Team {
+export default class ErrorRepository {
   constructor() {
-    this.members = new Set();
+    this.repository = new Map([
+      ['401', 'Red Error! Smth wrong'],
+      ['402', 'Yellow Error! Be carefull'],
+      ['403', 'Blue Error! Do smth'],
+      ['404', 'Orange Error! System Error'],
+    ]);
   }
 
-  add(player) {
-    if (this.members.has(player)) {
-      throw new Error('Такой персонаж уже есть');
-    } else {
-      this.members.add(player);
-    }
-  }
-
-  addAll(...player) {
-    player.forEach((item) => {
-      this.members.add(item);
-    });
-  }
-
-  toArray() {
-    this.members = Array.from(this.members);
+  translate(code) {
+    return this.repository.get(code) || 'Unknown error';
   }
 }
